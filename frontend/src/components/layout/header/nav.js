@@ -14,7 +14,7 @@ const Nav = ({ header, headerMenus, slug }) => {
   const [isMenuVisible, setMenuVisibility] = useState(false)
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6 ">
+    <nav className="flex items-center justify-between flex-wrap bg-blue-900 p-6 ">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
           <a>
@@ -62,7 +62,7 @@ const Nav = ({ header, headerMenus, slug }) => {
                 return (
                   <Link key={menu?.node.id} href={menu?.node?.path}>
                     <a
-                      className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                      className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
                       data-cy="nav-item"
                     >
                       {menu?.node?.label}
@@ -73,7 +73,7 @@ const Nav = ({ header, headerMenus, slug }) => {
             })}
             <Link href={'/blog/'}>
               <a
-                className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
                 data-cy="nav-item"
               >
                 Blog
@@ -81,7 +81,7 @@ const Nav = ({ header, headerMenus, slug }) => {
             </Link>
             <Link href={'/news/'}>
               <a
-                className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
                 data-cy="nav-item"
               >
                 News

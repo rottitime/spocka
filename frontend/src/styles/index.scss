@@ -1,6 +1,3 @@
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
 
 @import "libraries/nprogress";
 
@@ -14,3 +11,7 @@
 @import '~@wordpress/block-library/src/theme.scss';
 
 @import "site";
+
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
