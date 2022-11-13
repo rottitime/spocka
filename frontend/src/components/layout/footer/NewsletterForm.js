@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import { sanitize } from '../../../utils/miscellaneous';
-import Loading from '../../loading';
+import { useState } from 'react'
+import { sanitize } from '../../../utils/miscellaneous'
+import Loading from '../../loading'
 
-const NewsletterForm = ( { status, message, onValidated }) => {
-
-  const [ error, setError ] = useState(null);
-  const [ email, setEmail ] = useState(null);
+const NewsletterForm = ({ status, message, onValidated }) => {
+  const [error, setError] = useState(null)
+  const [email, setEmail] = useState(null)
 
   /**
    * Handle form submit.
@@ -13,18 +12,17 @@ const NewsletterForm = ( { status, message, onValidated }) => {
    * @return {{value}|*|boolean|null}
    */
   const handleFormSubmit = () => {
+    setError(null)
 
-    setError(null);
-
-    if ( ! email ) {
-      setError( 'Please enter a valid email address' );
-      return null;
+    if (!email) {
+      setError('Please enter a valid email address')
+      return null
     }
 
-    const isFormValidated = onValidated({ EMAIL: email });
+    const isFormValidated = onValidated({ EMAIL: email })
 
     // On success return true
-    return email && email.indexOf("@") > -1 && isFormValidated;
+    return email && email.indexOf('@') > -1 && isFormValidated
   }
 
   /**
@@ -32,14 +30,14 @@ const NewsletterForm = ( { status, message, onValidated }) => {
    *
    * @param event
    */
-  const handleInputKeyEvent = ( event ) => {
-    setError(null);
+  const handleInputKeyEvent = (event) => {
+    setError(null)
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
       // Cancel the default action, if needed
-      event.preventDefault();
+      event.preventDefault()
       // Trigger the button element with a click
-      handleFormSubmit();
+      handleFormSubmit()
     }
   }
 
@@ -50,20 +48,20 @@ const NewsletterForm = ( { status, message, onValidated }) => {
    * @return {null|*}
    */
   const getMessage = (message) => {
-    if ( !message ) {
-      return null;
+    if (!message) {
+      return null
     }
-    const result = message?.split('-') ?? null;
-    if ( "0" !== result?.[0]?.trim() ) {
-      return sanitize(message);
+    const result = message?.split('-') ?? null
+    if ('0' !== result?.[0]?.trim()) {
+      return sanitize(message)
     }
-    const formattedMessage = result?.[1]?.trim() ?? null;
-    return formattedMessage ? sanitize( formattedMessage ) : null;
+    const formattedMessage = result?.[1]?.trim() ?? null
+    return formattedMessage ? sanitize(formattedMessage) : null
   }
 
   return (
     <div>
-      <h3 className="mb-1 uppercase font-bold">Subscribe to newsletter</h3>
+      <h2 className="mb-1">Subscribe to newsletter</h2>
       <div className="flex newsletter-input-fields">
         <div className="mc-field-group">
           <input
@@ -75,25 +73,38 @@ const NewsletterForm = ( { status, message, onValidated }) => {
           />
         </div>
         <div className="button-wrap wp-block-button">
-          <button className="cursor-pointer	text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded" onClick={handleFormSubmit}>
+          <button
+            className="cursor-pointer	text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded"
+            onClick={handleFormSubmit}
+          >
             Submit
           </button>
         </div>
       </div>
       <div className="min-h-42px">
-        { 'sending' === status ? <Loading showSpinner message="Sending..." contentColorClass="text-white" hasVisibilityToggle={false}/> : null }
+        {'sending' === status ? (
+          <Loading
+            showSpinner
+            message="Sending..."
+            contentColorClass="text-white"
+            hasVisibilityToggle={false}
+          />
+        ) : null}
         {'error' === status || error ? (
           <div
             className="text-red-700 pt-2"
-            dangerouslySetInnerHTML={{ __html: error || getMessage( message ) }}
+            dangerouslySetInnerHTML={{ __html: error || getMessage(message) }}
           />
-        ) : null }
+        ) : null}
         {'success' === status && 'error' !== status && !error && (
-          <div className="text-green-200 font-bold pt-2" dangerouslySetInnerHTML={{ __html: sanitize(message) }} />
+          <div
+            className="text-green-200 font-bold pt-2"
+            dangerouslySetInnerHTML={{ __html: sanitize(message) }}
+          />
         )}
       </div>
     </div>
-  );
+  )
 }
 
 export default NewsletterForm

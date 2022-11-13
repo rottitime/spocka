@@ -1,19 +1,19 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 
 const defaultOptions = {
-	watchQuery: {
-		fetchPolicy: "no-cache",
-		errorPolicy: "ignore",
-	},
-	query: {
-		fetchPolicy: "no-cache",
-		errorPolicy: "all",
-	},
-};
+  watchQuery: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'ignore',
+  },
+  query: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+}
 
 const cache = new InMemoryCache({
-	resultCaching: false,
-});
+  resultCaching: false,
+})
 
 /**
  * The credentials: 'include' allows cookies to be automatically sent
@@ -22,14 +22,14 @@ const cache = new InMemoryCache({
  * @see https://www.apollographql.com/docs/react/networking/authentication/#cookie
  */
 const link = createHttpLink({
-	uri: `${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/graphql`,
+  uri: `${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/graphql`,
 })
 
 const client = new ApolloClient({
-	connectToDevTools: true,
-	link,
-	cache,
-	defaultOptions
-});
+  connectToDevTools: true,
+  link,
+  cache,
+  defaultOptions,
+})
 
-export default client;
+export default client

@@ -3,11 +3,19 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: [
-    './src/components/**/*.js',
-    './pages/**/*.js',
-  ],
+  purge: ['./src/components/**/*.js', './pages/**/*.js'],
   theme: {
+    fontSize: {
+      sm: '0.8rem',
+      base: '1rem',
+      xl: '1.25rem',
+      '2xl': '24px',
+      '3xl': '30px',
+      '4xl': '36px',
+      '5xl': '48px',
+      '6xl': '60px',
+      '7xl': '72px',
+    },
     extend: {
       screens: {
         xm: '320px',
@@ -28,9 +36,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [
-    require( 'tailwindcss' ),
-    require( 'precss' ),
-    require( 'autoprefixer' ),
-  ],
-};
+  plugins: [require('tailwindcss'), require('precss'), require('autoprefixer')],
+}
