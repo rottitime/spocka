@@ -13,8 +13,8 @@
 		"svg": "svgr -d src/components/icons src/components/icons/svgs",
 		"cypress:open": "cypress open",
 		"cypress:run": "cypress run",
-		// "lint": "eslint src/components/* src/utils/* pages/*",
-		// "lint:fix": "eslint --fix src/components/* src/utils/* pages/*",
+		"lint": "eslint src/components/* src/utils/* pages/*",
+		"lint:fix": "eslint --fix src/components/* src/utils/* pages/*",
 		"precommit": "npm run lint:fix && npm run build"
 	},
 	"dependencies": {
