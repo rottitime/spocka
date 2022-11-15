@@ -87,6 +87,7 @@ node_modules
 
 # OS generated files
 Thumbs.db
+.DS_Store
 
 # Other
 .cache
