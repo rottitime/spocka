@@ -30,7 +30,7 @@ const Footer = ({ footer, footerMenus }) => {
             <ul>
               {footerMenus.map((footerMenu) => (
                 <li key={footerMenu?.node?.id}>
-                  <Link href={footerMenu?.node?.path}>
+                  <Link href={footerMenu?.node?.path} legacyBehavior>
                     <a>{footerMenu?.node?.label}</a>
                   </Link>
                 </li>

@@ -16,7 +16,7 @@ const Nav = ({ header, headerMenus, slug }) => {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-blue-900 p-6 ">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a>
             <img
               src={header?.siteLogoUrl ?? ''}
@@ -60,7 +60,11 @@ const Nav = ({ header, headerMenus, slug }) => {
             {headerMenus?.map((menu) => {
               if (!isCustomPageUri(menu?.node?.path)) {
                 return (
-                  <Link key={menu?.node.id} href={menu?.node?.path}>
+                  <Link
+                    key={menu?.node.id}
+                    href={menu?.node?.path}
+                    legacyBehavior
+                  >
                     <a
                       className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
                       data-cy="nav-item"
@@ -71,7 +75,7 @@ const Nav = ({ header, headerMenus, slug }) => {
                 )
               }
             })}
-            <Link href={'/blog/'}>
+            <Link href={'/blog/'} legacyBehavior>
               <a
                 className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
                 data-cy="nav-item"
@@ -79,7 +83,7 @@ const Nav = ({ header, headerMenus, slug }) => {
                 Blog
               </a>
             </Link>
-            <Link href={'/news/'}>
+            <Link href={'/news/'} legacyBehavior>
               <a
                 className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
                 data-cy="nav-item"
