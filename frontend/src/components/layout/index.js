@@ -33,7 +33,10 @@ const Layout = ({ data, isPost, children }) => {
         ) : null}
       </Head>
       <Header header={header} headerMenus={headerMenus?.edges} />
-      <div className="md:container px-5  mx-auto min-h-almost-screen">
+      <div
+        className="md:container px-5  mx-auto min-h-almost-screen"
+        style={{ marginTop: '40px' }}
+      >
         {children}
       </div>
       <Footer footer={footer} footerMenus={footerMenus?.edges} />

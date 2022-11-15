@@ -3,10 +3,15 @@ import { sanitize } from '../../../utils/miscellaneous'
 import Link from 'next/link'
 import { getIconComponentByName } from '../../../utils/icons-map'
 import NewsletterSubscribe from './NewsletterSubscribe'
+import styled from 'styled-components'
+
+const FooterWrapper = styled('footer')`
+  background-color: #470a68;
+`
 
 const Footer = ({ footer, footerMenus }) => {
   return (
-    <footer className="bg-blue-900 p-6">
+    <FooterWrapper className=" p-6">
       <div className="flex flex-wrap -mx-1 overflow-hidden text-white">
         {/*Widget One*/}
         <div className="my-1 px-1 w-full overflow-hidden sm:w-full lg:w-1/2 xl:w-1/3">
@@ -60,7 +65,7 @@ const Footer = ({ footer, footerMenus }) => {
           ) : null}
         </div>
       </div>
-    </footer>
+    </FooterWrapper>
   )
 }
 

@@ -17,6 +17,10 @@ module.exports = {
       '7xl': '72px',
     },
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+
       screens: {
         xm: '320px',
       },
