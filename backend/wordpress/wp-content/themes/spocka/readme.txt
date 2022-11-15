@@ -1,5 +1,4 @@
 === Twenty Twenty-One ===
-
 Contributors: wordpressdotorg
 Requires at least: 5.3
 Tested up to: 6.1
