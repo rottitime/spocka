@@ -352,25 +352,7 @@ if ( ! function_exists( 'spocka_cms_setup' ) ) {
 add_action( 'after_setup_theme', 'spocka_cms_setup' );
 
 
-function add_theme_caps(){
-	global $pagenow;
-	// gets the author role
-	$role = get_role('editor');
-  
-	if ('themes.php' == $pagenow && isset($_GET['activated'])) { 
-			// Test if theme is activated
-			// Theme is activated
-			// This only works, because it accesses the class instance.
-			// would allow the editor to edit the theme options
-			$role->add_cap('edit_theme_options');
-	} else {
-		   // Theme is deactivated
-		   // Remove the capability when theme is deactivated
-		   $role->remove_cap('edit_theme_options');
-	}
-  }
-  add_action( 'load-themes.php', 'add_theme_caps' );
-  
+
 
 
 /**
