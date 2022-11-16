@@ -122,14 +122,14 @@ const Nav = ({ header, headerMenus, slug }) => {
                   )
                 }
               })}
-              <Link href={'/blog/'} legacyBehavior>
+              {/* <Link href={'/blog/'} legacyBehavior>
                 <a
                   className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4 menu-link"
                   data-cy="nav-item"
                 >
                   Blog
                 </a>
-              </Link>
+              </Link> */}
               <Link href={'/news/'} legacyBehavior>
                 <a
                   className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4 menu-link"
